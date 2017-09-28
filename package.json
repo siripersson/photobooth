@@ -1,0 +1,25 @@
+{
+  "name": "photobooth",
+  "version": "1.0.0",
+  "description": "A camera application to take pictures",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siripersson/photobooth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siripersson/photobooth/issues"
+  },
+  "homepage": "https://github.com/siripersson/photobooth#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.5",
+    "path": "^0.12.7"
+  }
+}
