@@ -1,5 +1,5 @@
 
-const hidden_canvas = document.querySelector('canvas'); //Deklareras högst upp i dokumentet
+const hidden_canvas = document.getElementById('canvas'); //Deklareras högst upp i dokumentet
 // Get video stream
 const video= document.getElementById('camera-stream')
 
@@ -21,8 +21,8 @@ navigator.getMedia( { video: true }, (stream) => {
 
 
 // Hämta ut knapparna
-const take_photo_btn=document.getElementById('take-photo')
-const save_photo_btn=document.getElementById('save-photo')
+const take_photo_btn=document.querySelector('#take-photo')
+const save_photo_btn=document.querySelector('#save-photo')
 
 // Eventlistener
 take_photo_btn.addEventListener('click', (e) =>{
@@ -30,16 +30,22 @@ take_photo_btn.addEventListener('click', (e) =>{
 	const snap= takeSnapShot() //anropa snapchot funktionen, den returnerar en bild
 	const image_tag= document.getElementById('snap') // get image tag
 	image_tag.setAttribute("src", snap) // set attribute src
-	const save_photo_btn=document.getElementById('save-photo')
-	save_photo_btn.setAttribute("href",snap) // set attribute href
+
+	// Save photo
+	const save_tag= document.getElementById('save-photo')
+	save_tag.setAttribute("href", document.getElementById("canvas").toDataURL("image/png")) // set attribute href
+
+
 	e.preventDefault();
 })
 
 // Eventlistener
 save_photo_btn.addEventListener('click', (e) =>{
-const save_photo_btn=document.getElementById('save-photo')
-	save_photo_btn.setAttribute("href",snap) // set attribute href
-	e.preventDefault();
+	//const image_tag= document.getElementById('snap')
+
+	console.log("save photo")
+//	save_photo_btn.setAttribute("href",snap) // set attribute href
+//	e.preventDefault();
 })
 
 
@@ -48,6 +54,8 @@ const takeSnapShot = () => {
 	// Read size, height and width
 	const width= document.getElementById('camera-stream').width;
 	const height= document.getElementById('camera-stream').height;
+	//const width=video.videoWidth;
+	//const height=video.videoHeight;
 	//const size= document.getElementById('camera-stream').size;
 	console.log("Width: " + width)
 	console.log("Height: " + height)
