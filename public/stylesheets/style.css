@@ -8,12 +8,22 @@ h1{
 	text-align:center;
 }
 
-.video{
+.canvas{
 	text-align:center;
+	/* display:none; */
+
+}
+
+#snap{
+	/* display:none; */
+}
+
+.video{
+	/* text-align:center; */
 }
 
 .button{
-    color:white;
+    /* color:white;
     text-align:center;
     font-size:15px;
     height:40px; 
@@ -21,9 +31,8 @@ h1{
     background-color: #333;
     overflow: auto;
     white-space: nowrap;
-    margin:auto;
+    margin:auto; */
 }
-
 
 .head-menu{
     background-color: #333;
@@ -44,12 +53,12 @@ h1{
 }
 
 
-.container{
+/*.container{
     background-color:darkblue;
     text-align:center;
     margin:10%;
     padding:2cm;
-}
+} */
 
 footer{
     margin:10%;

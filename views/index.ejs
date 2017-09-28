@@ -17,12 +17,20 @@
 			<h1>Siris photobooth</h1>
 			<div class="container">
 
-				<video id="camera-stream" class="video"width="420">
+				<video id="camera-stream" class="video" width="320" height="240">
   				</video>
 
-  				<button class= "button"><a href="#takephoto" id="take-photo">Take photo </a></button>
-				<button class= "button"><a href="#sharephoto" id="share-photo">Share photo</a></button>
-				<button class= "button"><a href="#deletephoto" id="delete-photo">Delete photo</a></button>
+  				<img id="snap"></img>
+
+  				<canvas id="canvas" class="canvas" width="320" height="240"></canvas>
+
+  				<!--<button class= "button"><a href="#takephoto" id="take-photo">Take photo </a></button> -->
+  				<a href="#takephoto" id="take-photo"><img src= "camera2.png" style= "width:30px;height:30px;"></a>
+
+  				<a id="save-photo" href="#savephoto" download="photo.png"></a>
+
+				<!-- <button class= "button"><a href="#sharephoto" id="share-photo">Share photo</a></button>
+				<button class= "button"><a href="#deletephoto" id="delete-photo">Delete photo</a></button> -->
 			</div>
 
 		</div>
