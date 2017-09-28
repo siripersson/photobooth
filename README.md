@@ -1,3 +1,3 @@
 # photobooth
 
-A camera application to take pictures
+A camera application to take pictures and save them to yuor computer
