@@ -12,19 +12,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
-  console.log('fetching first page')
+  console.log('Fetching first page')
   res.render('index')
 })
 
-app.get('/om-mig', (req, res) => {
-  console.log('fetching about page')
-  res.send('Jag heter Siri')
+app.get('/about', (req, res) => {
+  console.log('Fetching about page')
+  //res.send('Jag heter Siri')
+  res.render('about')
 })
 
 
-app.get('/kontakt', (req, res) => {
-  console.log('fetching contact page')
-  res.send('Du når mig på slack')
+app.get('/contact', (req, res) => {
+  console.log('Fetching contact page')
+  //res.send('Du når mig på slack')
+  res.render('contact')
 })
 
 app.listen(port, (req, res) => {

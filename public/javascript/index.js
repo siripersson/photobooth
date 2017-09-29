@@ -30,7 +30,7 @@ take_photo_btn.addEventListener('click', (e) =>{
 
 	// Save photo
 	const save_tag= document.getElementById('save-photo')
-	save_tag.setAttribute("href", document.getElementById("canvas").toDataURL("image/png")) // set attribute href
+	save_tag.setAttribute("href", snap) // set attribute href
 	e.preventDefault();
 })
 
