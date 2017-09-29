@@ -3,22 +3,35 @@ body{
 }
 
 h1{
-	color:blue;
-	font-size:50px;
+	color:white;
+	font-size:70px;
 	text-align:center;
+}
+
+div{
+    text-align:center;
+
+}
+
+a{
+    display: inline-block;
 }
 
 .canvas{
 	text-align:center;
-	display:none; */
+	display:none; 
 
 }
 
 #snap{
+    text-align:center;
+    padding: 2cm;
 	/*display:none; */
 }
 
 .video{
+    text-align:center;
+    padding: 2cm;
 	/* text-align:center; */
 }
 
