@@ -1,6 +1,7 @@
 // Imports
 const express = require('express')
 const path = require('path')
+const port = process.env.PORT || 3000 // create port variable
 
 const app = express()
 
@@ -26,6 +27,6 @@ app.get('/kontakt', (req, res) => {
   res.send('Du når mig på slack')
 })
 
-app.listen(3000, (req, res) => {
+app.listen(port, (req, res) => {
   console.log('Open localhost:3000!')
 })
