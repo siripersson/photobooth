@@ -1,15 +1,12 @@
 
-const hidden_canvas = document.getElementById('canvas'); //Deklareras högst upp i dokumentet
-// Get video stream
-const video= document.getElementById('camera-stream')
-
+const hidden_canvas = document.getElementById('canvas'); // Get canvas
+const video= document.getElementById('camera-stream')// Get video stream
 
 // Fetch video stream
 navigator.getMedia = (navigator.getUserMedia ||
           navigator.webkitGetUserMedia ||
           navigator.mozGetUserMedia ||
           navigator.msGetUserMedia);
-
 navigator.getMedia( { video: true }, (stream) => {
   video.src = window.URL.createObjectURL(stream);
   video.play();
@@ -19,12 +16,12 @@ navigator.getMedia( { video: true }, (stream) => {
   }
 );
 
-
-// Hämta ut knapparna
+// Fetch the buttons
 const take_photo_btn=document.querySelector('#take-photo')
 const save_photo_btn=document.querySelector('#save-photo')
+const delete_photo_btn=document.querySelector('#delete-photo')
 
-// Eventlistener
+// Eventlistener for take photo button
 take_photo_btn.addEventListener('click', (e) =>{
 	console.log("Clicked on take-photo")
 	const snap= takeSnapShot() //anropa snapchot funktionen, den returnerar en bild
@@ -34,45 +31,42 @@ take_photo_btn.addEventListener('click', (e) =>{
 	// Save photo
 	const save_tag= document.getElementById('save-photo')
 	save_tag.setAttribute("href", document.getElementById("canvas").toDataURL("image/png")) // set attribute href
-
-
 	e.preventDefault();
 })
 
-// Eventlistener
+// Eventlistener for save button
 save_photo_btn.addEventListener('click', (e) =>{
-	//const image_tag= document.getElementById('snap')
-
 	console.log("save photo")
-//	save_photo_btn.setAttribute("href",snap) // set attribute href
-//	e.preventDefault();
+})
+
+// Eventlistener for delete button
+delete_photo_btn.addEventListener('click', (e) =>{
+	const image_tag2= document.getElementById('snap') // get image tag
+	image_tag2.setAttribute("src",'') // set attribute src
+
+	// Save photo
+	const save_tag2= document.getElementById('save-photo')
+	save_tag2.setAttribute("href", '') // set attribute href
+	console.log("Delete photo")
+	e.preventDefault();
 })
 
 
 //Function
 const takeSnapShot = () => {
-	// Read size, height and width
-	const width= document.getElementById('camera-stream').width;
-	const height= document.getElementById('camera-stream').height;
+	const width= document.getElementById('camera-stream').width; // get width of videostream
+	const height= document.getElementById('camera-stream').height; //get height
 	//const width=video.videoWidth;
-	//const height=video.videoHeight;
-	//const size= document.getElementById('camera-stream').size;
+	//const height=video.videoHeight; // fotot blev för stort när man använde dessa
 	console.log("Width: " + width)
 	console.log("Height: " + height)
-	//console.log("Size: " + size)
 
 	 // Grab elements, create settings, etc.
     const context = hidden_canvas.getContext("2d")
     context.drawImage(video,0,0,width,height)
-    //const picture= context.toDataURL('image/png')
-    const src=hidden_canvas.toDataURL("image/png") 
-}
-
-const saveSnapShot = () => {
+    return hidden_canvas.toDataURL("image/png") // returnerar en bild
 
 }
 
-
-//takeSnapShot()
 
 
