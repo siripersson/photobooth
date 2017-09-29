@@ -1,50 +1,71 @@
 body{
-	background-color:lightblue;
+	background-color:lightblue; */
 }
 
 h1{
 	color:white;
-	font-size:70px;
+	font-size:80px;
 	text-align:center;
+    font-family: 'Gloria Hallelujah', cursive;
 }
-
-div{
-    text-align:center;
-
-}
-
-a{
-    display: inline-block;
-}
-
-.canvas{
-	text-align:center;
-	display:none; 
-
+#camera-stream{
+    width:480px;
+    height:320px;
 }
 
 #snap{
+    width:480px;
+    height:320px;
+}
+
+#canvas{
+    width:480px;
+    height:320px;
+}
+
+.all-container{
+    background-color:darkblue;
+    margin:10%;
     text-align:center;
-    padding: 2cm;
-	/*display:none; */
+}
+
+.video-container{
+    display:inline-block;
+    width: 480px;
+    height: 320px;
+    text-align:center;
+}
+
+.snap-container{
+    display:inline-block;
+    width: 480px;
+    height: 320px;
+    text-align:center;
+}
+
+.canvas-container{
+    display:inline-block;
+    width: 480px;
+    height: 320px;
+    text-align:center;
+}
+
+.button-container{
+    background-color:white;
+}
+
+#camera-stream:hover {
+    background-color: #777;
+}
+
+
+.canvas{
+	display:none; 
 }
 
 .video{
+    display:inline-block;
     text-align:center;
-    padding: 2cm;
-	/* text-align:center; */
-}
-
-.button{
-    /* color:white;
-    text-align:center;
-    font-size:15px;
-    height:40px; 
-    width:120px;
-    background-color: #333;
-    overflow: auto;
-    white-space: nowrap;
-    margin:auto; */
 }
 
 .head-menu{
@@ -65,13 +86,6 @@ a{
     background-color: #777;
 }
 
-
-/*.container{
-    background-color:darkblue;
-    text-align:center;
-    margin:10%;
-    padding:2cm;
-} */
 
 footer{
     margin:10%;

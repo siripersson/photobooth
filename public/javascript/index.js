@@ -55,9 +55,12 @@ delete_photo_btn.addEventListener('click', (e) =>{
 //Function
 const takeSnapShot = () => {
 	const width= document.getElementById('camera-stream').width; // get width of videostream
-	const height= document.getElementById('camera-stream').height; //get height
-	//const width=video.videoWidth;
-	//const height=video.videoHeight; // fotot blev för stort när man använde dessa
+	const height= document.getElementById('camera-stream').height;
+	//video.width =480;
+	//video.height=320;
+	//const width_1=video.videoWidth
+	//const height_1=video.videoHeight
+	 // fotot blev för stort när man använde dessa
 	console.log("Width: " + width)
 	console.log("Height: " + height)
 
