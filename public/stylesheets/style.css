@@ -6,12 +6,6 @@ body{
     background-position: center;
 }
 
-#logo{
-    position:absolute;
-    right:10vw;
-    top:2vw;  
-}
-
 h1{
     color:white;
 	font-size:80px;
