@@ -16,19 +16,6 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/about', (req, res) => {
-  console.log('Fetching about page')
-  //res.send('Jag heter Siri')
-  res.render('about')
-})
-
-
-app.get('/contact', (req, res) => {
-  console.log('Fetching contact page')
-  //res.send('Du når mig på slack')
-  res.render('contact')
-})
-
 app.listen(port, (req, res) => {
   console.log('Open localhost:3000!')
 })
