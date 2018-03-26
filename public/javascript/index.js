@@ -1,75 +1,63 @@
 
-const hidden_canvas = document.getElementById('canvas'); // Get canvas
-const video= document.getElementById('camera-stream')// Get video stream
+
+
+// Get html elements
+const video= document.getElementById('video')// Get video stream
+const canvas = document.getElementById('canvas'); // Get canvas
+const image=document.getElementById('image');
+
+// Get buttons
+const takePhotoButton=document.getElementById('take-photo')
+const deleteButton=document.getElementById('delete-photo')
+const saveButton=document.getElementById('save-photo')
+
 
 // Fetch video stream
-navigator.getMedia = (navigator.getUserMedia ||
-          navigator.webkitGetUserMedia ||
-          navigator.mozGetUserMedia ||
-          navigator.msGetUserMedia);
-navigator.getMedia( { video: true }, (stream) => {
-  video.src = window.URL.createObjectURL(stream);
-  video.play();
-  },
-  (err) => {
-    console.error(err);
-  }
-);
+navigator.mediaDevices.getUserMedia({ video: true })
+	.then(function(stream){
+		video.src = window.URL.createObjectURL(stream);
+		video.play();
+	})
+	.catch(function(err){
+		console.error(err);
+	});
 
-// Fetch the buttons
-const take_photo_btn=document.querySelector('#take-photo')
-const save_photo_btn=document.querySelector('#save-photo')
-const delete_photo_btn=document.querySelector('#delete-photo')
+//Function to take the snapshot
+const takeSnapShot = () => {
+	const width= video.width; // get width of videostream
+	const height= video.height; // get height
+    const context = canvas.getContext("2d") // set context
+    context.drawImage(video,0,0,width,height) // draw image
+    return canvas.toDataURL("image/png") // return image
+}
 
 // Eventlistener for take photo button
-take_photo_btn.addEventListener('click', (e) =>{
-	console.log("Clicked on take-photo")
-	const snap= takeSnapShot() //anropa snapchot funktionen, den returnerar en bild
-	const image_tag= document.getElementById('snap') // get image tag
-	image_tag.setAttribute("src", snap) // set attribute src
+takePhotoButton.addEventListener('click', (e) =>{
+	const picture= takeSnapShot() //call snapchot function
+	image.style.display = "inline"; // place the snapshot beside the video
+	image.setAttribute("src", picture) // set attribute src
+
+	// To create a flash
+	document.getElementById("flash").style.display = "inline";
+	setTimeout(function () {
+		document.getElementById("flash").style.display = "none";
+	}, 200);
 
 	// Save photo
-	const save_tag= document.getElementById('save-photo')
-	save_tag.setAttribute("href", snap) // set attribute href
-	e.preventDefault();
-})
-
-// Eventlistener for save button
-save_photo_btn.addEventListener('click', (e) =>{
-	console.log("save photo")
+	saveButton.setAttribute("href", picture) // set attribute href
+	e.preventDefault(); 
 })
 
 // Eventlistener for delete button
-delete_photo_btn.addEventListener('click', (e) =>{
-	const image_tag2= document.getElementById('snap') // get image tag
-	image_tag2.setAttribute("src",'') // set attribute src
+deleteButton.addEventListener('click', (e) =>{
+	image.setAttribute("src",'') // set attribute src
+	image.style.display = "none"; // set display to none
 
-	// Save photo
-	const save_tag2= document.getElementById('save-photo')
-	save_tag2.setAttribute("href", '') // set attribute href
-	console.log("Delete photo")
-	e.preventDefault();
-})
+	// Delete saved photo
+	saveButton.setAttribute("href", '') // set attribute href 
+	e.preventDefault(); 
+}) 
 
-
-//Function
-const takeSnapShot = () => {
-	const width= document.getElementById('camera-stream').width; // get width of videostream
-	const height= document.getElementById('camera-stream').height;
-	//video.width =480;
-	//video.height=320;
-	//const width_1=video.videoWidth
-	//const height_1=video.videoHeight
-	 // fotot blev för stort när man använde dessa
-	console.log("Width: " + width)
-	console.log("Height: " + height)
-
-	 // Grab elements, create settings, etc.
-    const context = hidden_canvas.getContext("2d")
-    context.drawImage(video,0,0,width,height)
-    return hidden_canvas.toDataURL("image/png") // returnerar en bild
-
-}
 
 
 
